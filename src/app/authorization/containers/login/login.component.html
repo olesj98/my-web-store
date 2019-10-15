@@ -1,0 +1,24 @@
+<div class="login">
+    <div (click)="onClose()" class="close-btn close-img"></div>
+    <h2 class="login-title">Sign {{ loginPostfix }}</h2>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <ng-container *ngIf="isLogin">
+            <input type="name" class="login-input" placeholder="Your name" formControlName="name">
+        </ng-container>
+        <input type="email" class="login-input" placeholder="Your email" formControlName="email">
+        <input type="password" class="login-input" placeholder="Your password" formControlName="password">
+        <store-checkbox formControlName="remember"></store-checkbox>
+        <button class="login-btn" type="submit">Sign {{ loginPostfix }}</button>
+    </form>
+    <div class="footer">
+        <ng-container *ngIf="!isLogin">
+            <div class="info">Forgot password</div>
+            <div class="info" (click)="togglePage()">Want to Register</div>
+        </ng-container>
+        <ng-container *ngIf="isLogin">
+            <div class="info" (click)="togglePage()">
+                Have an account
+            </div>
+        </ng-container>
+    </div>
+</div>

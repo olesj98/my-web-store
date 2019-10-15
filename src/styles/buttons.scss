@@ -1,0 +1,26 @@
+@import "./images.scss";
+
+@mixin sale-btn($color) {
+    padding: 0.1rem 0.5rem;
+    background-color: $color;
+    color: white;
+    font-family: "Montserrat";
+    font-weight: 700;
+    z-index: 1;
+    border: none;
+}
+
+@mixin main-btn($background-color, $color) {
+    height: 3rem;
+    width: 10rem;
+    background-color: $background-color;
+    @include font("Montserrat", 700, 1rem, $color);
+    border: none;
+    border-radius: 1.5rem;
+}
+
+.close-btn {
+    @include background-img-positioning(center, no-repeat, contain);
+    height: 4.5rem;
+    width: 4.5rem;
+}

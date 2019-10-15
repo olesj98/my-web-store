@@ -1,0 +1,53 @@
+// Can not see variables and classes when import to style.scss
+@import "./buttons.scss";
+@import "./images.scss";
+@import "./variables.scss";
+@import "./material-dialog.scss";
+
+// Mixins and wariables for project wide usage
+
+@mixin font($font-family, $font-weigth, $font-size, $color) {
+    font-family: $font-family;
+    font-weight: $font-weigth;
+    font-size: $font-size;
+    color: $color;
+}
+
+@mixin column() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin ul-style() {
+    list-style-type: none;
+}
+
+@mixin a-style() {
+    text-decoration: none;
+    color: inherit;
+}
+
+@mixin hidden() {
+    display: none;
+}
+
+
+
+
+
+.justify {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.justify-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,4 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Playfair+Display:400i,700&display=swap');
+// @import './styles/common.scss';
+// @import './styles/material-dialog.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: "Lucida Grande";
+    src: url("./assets/fonts/lucidagrande.ttf");
+}
+
+@font-face {
+    font-family: "Lucida Grande Bold";
+    src: url("./assets/fonts/lucidagrandebold.ttf");
+}
+
+html, body { 
+    height: 100%; 
+}
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+p {
+    margin: 0;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+label {
+    margin: 0;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    margin: 0;
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+// MAT DIALOG CONTAINER STYLING
+.dialog-container {
+    
+    .mat-dialog-container {
+        min-height: 480px;
+        min-width: 320px;
+        border-radius: 0;
+        background: #FFFFFF;
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+        padding: 0.5rem;
+    }
+}
+// MAT DIALOG CONTAINER STYLING END

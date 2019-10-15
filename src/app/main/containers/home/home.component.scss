@@ -1,0 +1,266 @@
+@import "../../../../styles/common.scss";
+
+.home-head-img {
+    background-image: url("../../../../assets/img/imgs/home/home-head.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    height: 30rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.head-desctop-positioning {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin-left: 5rem;
+
+    .head-title {
+        height: 9rem;
+        display: flex;
+        align-items: flex-start;
+        max-width: 25rem;
+    
+        .title-bold {
+            @include font("Playfair Display", 700, 3rem, white);
+        }
+        .title-italic {
+            @include font("Playfair Display", 400, 3rem, white);
+            font-style: italic;
+        }
+    }
+    
+    .head-text {
+        max-width: 30rem;
+        h2 {
+            @include font("Playfair Display", 700, 1.5rem, white);
+        }
+    }
+    
+    .head-button {
+        @include main-btn(white, $main-color);
+    }
+}
+
+.home-col {
+    width: 100%;
+    margin: 1.5rem 1.6rem 0 1.6rem;
+}
+
+.padding {
+    padding: 1.5rem 0.7rem;
+}
+
+.sale {
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.197803);
+    position: relative;
+
+    .sale-btn {
+        @include sale-btn(#00D3CA);
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+    .sale-img {
+        background: url("../../../../assets/img/imgs/home/sale-item.jpg");
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .sale-title {
+        @include font("Montserrat", 700, 1.5rem, black);
+    }
+    .sale-text {
+        @include font("Open Sans", 300, 1rem, black);
+    }
+    .shop-now-btn {
+        @include main-btn($main-color, white);
+    }
+}
+
+.news {
+    background-color: rgb(255, 255, 255);
+    min-height: 42.5rem;
+
+    .side-add {
+        display: flex;
+        flex-direction: column;
+
+        .side-add-size {
+            height: 312px;
+            min-width: 150px;
+        }
+
+        .side-add-1 {
+            background-color: #84E6F1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .add-title-1 {
+                @include font("Playfair Display", 700, 3rem, black);                    
+            }
+
+            .add-text {
+                @include font("Montserrat", 700, 1.5rem, $main-color);
+                max-width: 6rem;
+            }
+        }
+
+        .side-add-2 {
+            background: url("../../../../assets/img/imgs/home/men.jpg");
+            @include background-img-positioning(center, no-repeat, cover);
+            margin-top: 1.5rem;
+
+            .add-color {
+                background-color: rgba(201, 151, 59, 0.6);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .add-title-2 {
+                @include font("Playfair Display", 700, 3rem, white);
+            }
+        }
+    }
+
+    .main-add {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.197803);
+
+        .pop {
+            @include sale-btn(#FE5C07);
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+        }
+
+        .main-add-img {
+            min-height: 25.5rem;
+            background: url("../../../../assets/img/imgs/home/let-the-game-begin.jpg");
+            @include background-img-positioning(top left, no-repeat, cover);
+        }
+
+        .main-add-description {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+
+            .main-add-title {
+                @include font("Playfair Display", 700, 3rem, #2E2E2E);
+            }
+            .main-add-text {
+                @include font("Montserrat", 700, 1.5rem, #2E2E2E);
+            }
+            .main-add-button {
+                @include main-btn($main-color, white);
+            }
+        }
+    }
+}
+
+.subscription {
+    background: #EFEFEF;
+    height: 16.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .sub-title {
+        @include font("Montserrat", 700, 1.5rem, $main-color);
+        text-align: center;
+    }
+    .sub-text {
+        @include font("Montserrat", 700, 1rem, #2E2E2E);
+        max-width: 33rem;
+        text-align: center;
+    }
+
+    .sub-form {
+        margin-top: 1.5rem;
+        display: flex;
+        position: relative;
+
+        .sub-label {
+            background: url("../../../../assets/img/icons/envelope.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2rem;
+            width: 2rem;
+            position: absolute;
+            z-index: 1;
+            left: 0.5rem;
+            top: 0.2rem;
+        }
+        .sub-input {
+            border-radius: 18px;
+            border: 1px solid #E1E1E1;
+            width: 20rem;
+            height: 2.1rem;
+            margin-right: 1.5rem;
+            outline: 0;
+            padding-left: 3rem;
+        }
+
+        .sub-btn {
+            height: 2.5rem;
+            width: 6.5rem;
+            color: white;
+            @include font("Montserrat", 700, 0.9rem, white);
+            border-radius: 24px;
+            background-color: $main-color;
+            border: 1px solid #E1E1E1;
+        }
+    }
+}
+
+@media(max-width: 36rem) {
+    .home-head-img {
+        background: url("../../../../assets/img/imgs/home/home-head-mobile.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 40.5rem;
+    }
+    .head-desctop-positioning {
+        @include hidden();
+    }
+    .sale {
+        padding-bottom: 1rem;
+    }
+
+    .subscription {
+        min-height: 20rem;
+        padding: 0 1rem;
+
+        .sub-form {
+            flex-direction: column;
+            align-items: center;
+    
+            .sub-input {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+        }
+    }
+
+}

@@ -10,8 +10,16 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      "store",
       "kebab-case"
-    ]
+    ],
+    "indent": [true, "spaces", 4],
+    "space-before-function-paren": [true, "never"],
+    "variable-name": {
+      "options": [
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
+    }
   }
 }

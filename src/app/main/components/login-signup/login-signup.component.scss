@@ -1,0 +1,13 @@
+@import "../../../../styles/common.scss";
+
+.login-offer {
+    @include font("Montserrat", 700, 1rem, #2E2E2E);
+}
+
+.login-btn {
+    border: none;
+    outline: 0;
+    @include font("Montserrat", 700, 1rem, $main-color);
+    background-color: transparent;
+    padding: 0;
+}

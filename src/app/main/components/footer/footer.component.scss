@@ -1,0 +1,41 @@
+@import "../../../../styles/common.scss";
+
+.list {
+    @include ul-style();
+    a {
+        @include a-style();
+        @include font('Open Sans', 300, 1rem, $main-text-color);
+    }
+}
+
+.title {
+    @include font("Lucida Grande Bold", 700, 1rem, $main-text-color);
+}
+
+.copyright {
+    @include font('Open Sans', 300, 1rem, $main-text-color);
+}
+
+.footer-nav {
+    background-color: #ffffff;
+    min-height: 15rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    .footer-col {
+        min-width: 8rem;
+        min-height: 10rem;
+    }
+}
+
+@media(max-width: 36rem) {
+    .footer-nav {
+        padding: 2rem 1.5rem;
+        justify-content: space-between;
+    }
+    .copyright {
+        min-width: 30rem;
+    }
+}

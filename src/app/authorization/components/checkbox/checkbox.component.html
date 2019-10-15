@@ -1,0 +1,6 @@
+<div class="checkbox" (click)="onTouch(); toggleCheckbox()">
+    <span class="check-mark" [class.hidden]="!checked"></span>
+    <input type="checkbox" id="remember" name="remember" [formControl]="checkbox">
+    <div class="check-area"></div>
+    <label for="remember" class="checkbox-label">Remember</label>
+</div>

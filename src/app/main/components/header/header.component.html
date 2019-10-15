@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row header">
+        <div class="col-3 arrow-block" *ngIf="mobileMode">
+            <div class="arrow-back"></div>
+        </div>
+        <div class="col-md-3 col-6">
+            <h2 class="header-title" [class.centered]="mobileMode"><a href="#">SHOPMATE</a></h2>
+        </div>
+        <div class="col-3 to-right" *ngIf="mobileMode">
+            <div class="header-burger-menue" (click)="toggleTopBarMenue()"></div>
+        </div>
+        <div class="col-md-6" *ngIf="!(mobileMode)">
+            <ul class="header-menue">
+                <li class="header-menue-item"><a href="#">Women</a></li>
+                <li class="header-menue-item"><a href="#">Men</a></li>
+                <li class="header-menue-item"><a href="#">Kids</a></li>
+                <li class="header-menue-item"><a href="#">Shoes</a></li>
+                <li class="header-menue-item"><a href="#">Brands</a></li>
+                <li><store-login-signup></store-login-signup></li>
+            </ul>
+        </div>
+        <div class="col-md-3" *ngIf="!(mobileMode)">
+            <div class="header-icons">
+                <div class="input" (click)="toggleSearchInput()" tabindex="1" (blur)="unfocusSearchInput()">
+                    <input id="input-search" type="text" [class.active]="_toggleInputBoolean"/>
+                    <label class="search" for="inpt-search"></label>
+                </div>
+                <div class="cart">
+                    <div class="cart-bucket"></div>
+                    <div class="catrt-item">{{ itemsNumber }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="_toggleTopBarMenue">
+    <div class="background-nav" (click)="toggleTopBarMenue()">
+        <ul class="sidebar-nav" (click)="stopPropagate($event)">
+            <li class="nav-item"><a href="#">Women</a></li>
+            <li class="nav-item"><a href="#">Men</a></li>
+            <li class="nav-item"><a href="#">Kids</a></li>
+            <li class="nav-item"><a href="#">Shoes</a></li>
+            <li class="nav-item"><a href="#">Brands</a></li>
+        </ul>
+    </div>
+</div>
