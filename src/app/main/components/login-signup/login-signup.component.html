@@ -1,8 +1,8 @@
-<div *ngIf="!isLogged">
+<div *ngIf="!(isLogged | async)">
     <p class="login-offer">
-        Hi! <button class="login-btn" (click)="openLogIn()">Sign in</button> or <button class="login-btn" (click)="openSignUp()">Register</button>
+        Hi! <button class="login-btn" (click)="openModal(true)">Sign in</button> or <button class="login-btn" (click)="openModal(false)">Register</button>
     </p>
 </div>
-<div *ngIf="isLogged">
-    <p class="logged-in">Hi, {{ usename }}</p>
+<div *ngIf="isLogged | async">
+    <p class="login-offer">Hi, <button class="login-btn">{{ user | async }}</button> | <button class="login-btn" (click)="logOut()">Log out</button></p>
 </div>

@@ -1,41 +1,50 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { LoginComponent } from "../../../authorization/containers/login/login.component";
-import { isLogin } from "../../../authorization/utils/login.enum";
+import { CustomerService } from "../../../authorization/services/customer.service";
+import { Observable, of } from "rxjs";
+import { map, catchError } from "rxjs/operators";
 
 @Component({
     selector: "store-login-signup",
     templateUrl: "./login-signup.component.html",
     styleUrls: ["./login-signup.component.scss"]
+    // Dodaty animaciju abo Resolver???
 })
 export class LoginSignupComponent implements OnInit {
-    isLogged = false;
-    usename = "Olesj";
+    isLogged: Observable<boolean>;
+    user: Observable<string>;
 
-    constructor(public dialog: MatDialog) { }
+    constructor(
+        public dialog: MatDialog,
+        public customerService: CustomerService,
+    ) { }
 
     ngOnInit() {
+        this.isLogged = this.customerService.isCustomerLogged;
+        // correct Observable handling correct and error!!!
+        this.user = this.customerService.user
+            .pipe(
+                map(user => user.name),
+                catchError(err => {
+                    return of("");
+                })
+            );
     }
 
-    openLogIn(): void {
+    openModal(isLoginPage: boolean) {
         const dialogRef = this.dialog.open(LoginComponent, {
             panelClass: "dialog-container",
-            data: { isLogin: isLogin.Login }
+            data: { isLogin: isLoginPage }
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log("The dialog was closed");
-        });
+        // dialogRef.afterClosed().subscribe(result => {
+        //     console.log(result);
+        // });
     }
 
-    openSignUp() {
-        const dialogRef = this.dialog.open(LoginComponent, {
-            panelClass: "dialog-container",
-            data: { isLogin: isLogin.Signup }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            console.log("The signup was closed");
-        });
+    logOut() {
+        this.customerService.logout();
     }
+
 }

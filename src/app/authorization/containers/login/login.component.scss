@@ -5,6 +5,14 @@
     flex-direction: column;
     align-items: center;
 
+    .form-error {
+        position: absolute;
+        top: 11rem;
+        padding: 1rem 1.5rem;
+        background-color: rgb(247, 125, 125);
+        @include font("Montserrat", 700, 1rem, white);
+    }
+
     .close-img {
         background: url("../../../../assets/img/icons/close.svg");
     }
@@ -44,6 +52,10 @@
         width: 100%;
         margin-top: 1.4rem;
         color: $main-color;
+
+        .info {
+            cursor: pointer;
+        }
     }
 
 }

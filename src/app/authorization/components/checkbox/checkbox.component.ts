@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from "@angular/core";
+import { Component, forwardRef, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from "@angular/forms";
 
 @Component({
@@ -11,7 +11,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from "@angular/f
         useExisting: forwardRef(() => CheckboxComponent),
         multi: true
       }
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
     checked = false;

@@ -16,7 +16,6 @@ export class WindowListenerService {
     get mobileMode(): Observable<boolean> {
         return this._mobileMode.asObservable()
             .pipe(
-                tap(() => console.log("shareReply test")),
                 shareReplay(1)
             );
     }
@@ -37,7 +36,7 @@ export class WindowListenerService {
         this.windowWidthTracker = this.resize$.subscribe(width => {
             this.windowWidth = width;
             this._mobileMode.next(this.toggleMobileMode());
-            console.log(`Window width in sub: ${this.windowWidth};`);
+            // console.log(`Window width in sub: ${this.windowWidth};`);
         });
     }
 
