@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Params, ActivatedRoute } from "@angular/router";
 
 @Component({
-    selector: "app-detail",
+    selector: "store-detail",
     templateUrl: "./detail.component.html",
     styleUrls: ["./detail.component.scss"]
 })

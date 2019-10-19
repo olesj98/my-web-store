@@ -1,0 +1,31 @@
+@import "../../../../styles/common.scss";
+
+.cart {
+    position: relative;
+    margin-left: 1rem;
+    cursor: pointer;
+
+    .cart-bucket {
+        background: url("../../../../assets/img/icons/cart.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    .catrt-item {
+        background-color: $main-color;
+        border-radius: 50%;
+        height: 1.2rem;
+        width: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: "Montserrat";
+        font-size: 0.8rem;
+        font-weight: 700;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+    }
+}

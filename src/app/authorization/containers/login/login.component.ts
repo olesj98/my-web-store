@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit, OnDestroy } from "@angular/core";
+import { Component, Inject, OnInit, OnDestroy, ChangeDetectorRef } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { CustomerService } from "../../services/customer.service";
 import { LoginStrategy } from "../../utils/login-strategy.enum";
 import { Subscription } from "rxjs";
+import { HttpCustomerErorr } from "../../models/error";
 
 @Component({
     selector: "store-login",
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         private dialogRef: MatDialogRef<LoginComponent>,
         @Inject(MAT_DIALOG_DATA) private data: { isLogin: boolean },
         private formBuilder: FormBuilder,
-        private customerService: CustomerService
+        private customerService: CustomerService,
+        private cd: ChangeDetectorRef
     ) {}
 
     isLogin: boolean;
@@ -57,27 +59,39 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     onSubmit() {
+        // log form value
         console.log(this.loginForm.value);
         if (this.isLogin) {
             // !!!!tut treba subscribe bo majemo obrobyty error i pokazaty!!!!
             this.loginSub = this.customerService.login(this.loginForm.value, LoginStrategy.Regular)
                 .subscribe(response => {
                     // dodaty animaciju pidczas zagruzky usera
-                    this.dialogRef.close(response);
-                }, (error) => {
-                    this.erorrMessage = error.message;
-                    setTimeout(() => this.erorrMessage = "", 4000);
+                    this.closeDialog(response);
+                }, (error: HttpCustomerErorr) => {
+                    this.setError(error);
                 });
         } else {
             this.loginSub = this.customerService.register(this.loginForm.value)
                 .subscribe(response => {
                     // dodaty animaciju pidczas zagruzky usera
-                    this.dialogRef.close(response);
-                }, (error) => {
-                    this.erorrMessage = error.message;
-                    setTimeout(() => this.erorrMessage = "", 4000);
+                    this.closeDialog(response);
+                }, (error: HttpCustomerErorr) => {
+                    this.setError(error);
                 });
         }
+    }
+
+    setError(error: HttpCustomerErorr) {
+        // console.log(error);
+        this.erorrMessage = error.message;
+        console.log(this.erorrMessage);
+        // dont like it CHANGE DETECTOR???
+        this.cd.detectChanges();
+        setTimeout(() => this.erorrMessage = "", 2000);
+    }
+
+    closeDialog(response) {
+        this.dialogRef.close(response);
     }
 
     togglePage() {

@@ -13,6 +13,9 @@
         <store-checkbox formControlName="remember"></store-checkbox>
         <button class="login-btn" type="submit">Sign {{ loginPostfix }}</button>
     </form>
+    <!-- <div class="mt-1">
+        <store-facebook-btn (customerError)="setError($event)" (customerLogged)="closeDialog()"></store-facebook-btn>
+    </div> -->
     <div class="footer">
         <ng-container *ngIf="!isLogin">
             <div class="info">Forgot password</div>

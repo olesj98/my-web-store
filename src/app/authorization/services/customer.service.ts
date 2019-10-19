@@ -24,24 +24,22 @@ export class CustomerService {
     register(data: User) {
         return this.http.post(`${this.basePath}/customers`, data)
             .pipe(
-                tap((customerData) => Bearer.writeTokenToLocalStorage(customerData.accessToken)),
                 map(this.handleServerLoginResponse.bind(this)),
-                // catchError() - obrobleno w interceptori dla danych stezok
+                // catchError() - obrobleno w interceptori dla danych stezok abo bude obrobleno w componenti
             );
     }
 
-    login(data: User, loginStrategy: LoginStrategy) {
+    login(data: User | {access_token: string}, loginStrategy: LoginStrategy) {
         if (loginStrategy === LoginStrategy.Regular) {
             return this.http.post(`${this.basePath}/customers/login`, data)
                 .pipe(
-                    tap((customerData) => Bearer.writeTokenToLocalStorage(customerData.accessToken)),
                     map(this.handleServerLoginResponse.bind(this)),
-                    // catchError() - obrobleno w interceptori dla danych stezok
                 );
         } else if (loginStrategy === LoginStrategy.Facebook) {
-            // TODO
-            console.log("fb");
-            return this.http.post(`${this.basePath}/customers/facebook`, data);
+            return this.http.post(`${this.basePath}/customers/facebook`, data)
+                .pipe(
+                    map(this.handleServerLoginResponse.bind(this)),
+                );
         }
     }
 
@@ -55,7 +53,7 @@ export class CustomerService {
     getUserByToken() {
         return this.http.get(`${this.basePath}/customer`)
             .pipe(
-                map(customerData => {
+                map((customerData: { name: string, email: string }) => {
                     const user = {
                         name: customerData.name,
                         email: customerData.email
@@ -68,6 +66,8 @@ export class CustomerService {
 
     // w interceptor ne treba bo usaju tilky tut w servisi dla usera
     handleServerLoginResponse(customerData) {
+        Bearer.writeTokenToLocalStorage(customerData.accessToken);
+
         const user = {
             name: customerData.customer.name,
             email: customerData.customer.email

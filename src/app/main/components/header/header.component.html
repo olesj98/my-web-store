@@ -16,7 +16,6 @@
                 <li class="header-menue-item"><a href="#">Kids</a></li>
                 <li class="header-menue-item"><a href="#">Shoes</a></li>
                 <li class="header-menue-item"><a href="#">Brands</a></li>
-                <li><store-login-signup></store-login-signup></li>
             </ul>
         </div>
         <div class="col-md-3" *ngIf="!(mobileMode)">
@@ -25,10 +24,7 @@
                     <input id="input-search" type="text" [class.active]="_toggleInputBoolean"/>
                     <label class="search" for="inpt-search"></label>
                 </div>
-                <div class="cart">
-                    <div class="cart-bucket"></div>
-                    <div class="catrt-item">{{ itemsNumber }}</div>
-                </div>
+                <store-cart></store-cart>
             </div>
         </div>
     </div>

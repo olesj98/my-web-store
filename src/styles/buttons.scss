@@ -17,6 +17,7 @@
     @include font("Montserrat", 700, 1rem, $color);
     border: none;
     border-radius: 1.5rem;
+    outline: 0;
 }
 
 .close-btn {

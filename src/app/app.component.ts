@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CustomerService } from "./authorization/services/customer.service";
-import { HttpErorr } from "./authorization/models/error";
+import { HttpCustomerErorr } from "./authorization/models/error";
+import { CartService } from "./main/services/cart.service";
 
 @Component({
     selector: "store-root",
@@ -9,18 +10,25 @@ import { HttpErorr } from "./authorization/models/error";
 })
 export class AppComponent implements OnInit {
     title = "my-web-store";
-    constructor(private customerService: CustomerService) { }
+    constructor(
+        private customerService: CustomerService,
+        private cartService: CartService
+        ) { }
 
     ngOnInit() {
-        this.customerService.getUserByToken().subscribe(
-            null,
-            (err: HttpErorr) => {
-                    // mozna snackbar pokazaty - zalogujsia czy wyloguwaty
-                    // unauthorized
-                    if (err.status === 401) {
-                        console.log(err.message);
-                    }
+        // get user if exists
+        this.customerService.getUserByToken()
+            .subscribe(
+                null,
+                (err: HttpCustomerErorr) => {
                     this.customerService.logout();
-            });
+                });
+        // init cart id
+        this.cartService.generateCartId()
+            .subscribe(
+                null,
+                err => console.log(err)
+            );
+
     }
 }

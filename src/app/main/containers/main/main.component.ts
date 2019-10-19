@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { WindowListenerService } from "src/app/main/services/window-listener.service";
 
 @Component({
-    selector: "app-main",
+    selector: "store-main",
     templateUrl: "./main.component.html",
     styleUrls: ["./main.component.scss"]
 })

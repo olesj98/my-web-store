@@ -1,0 +1,7 @@
+<div class="product-list">
+    <store-product 
+      [product]="product" 
+      *ngFor="let product of (products | async); trackBy: trackById"
+      (addProductToCart)="addToCart($event)"
+      ></store-product>
+</div>

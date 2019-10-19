@@ -7,14 +7,21 @@ import { CatalogComponent } from "./containers/catalog/catalog.component";
 import { DetailComponent } from "./containers/detail/detail.component";
 import { BlogComponent } from "./containers/blog/blog.component";
 import { MainComponent } from "./containers/main/main.component";
+import { StoreComponent } from "./containers/store/store.component";
 
 const mainRouts: Routes = [
+    { path: "main" , redirectTo: "/main/home", pathMatch: "full" },
     { path: "main", component: MainComponent,
         children: [
             { path: "home", component: HomeComponent },
+            { path: "blog", component: BlogComponent }
+        ]
+    },
+    { path: "store" , redirectTo: "/store/catalog", pathMatch: "full" },
+    { path: "store", component: StoreComponent,
+        children: [
             { path: "catalog", component: CatalogComponent },
             { path: "product/:id", component: DetailComponent },
-            { path: "blog", component: BlogComponent }
         ]
     }
 ];

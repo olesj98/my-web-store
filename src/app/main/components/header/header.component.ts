@@ -1,17 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Input } from "@angular/core";
-import { WindowListenerService } from "../../services/window-listener.service";
-import { Subscription, Observable } from "rxjs";
+import { Component, OnInit, Input } from "@angular/core";
+import { Observable, BehaviorSubject } from "rxjs";
+import { CartItem } from "../../models/cartItem";
+import { CartService } from '../../services/cart.service';
 
 @Component({
-    selector: "app-header",
+    selector: "store-header",
     templateUrl: "./header.component.html",
     styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
     private _toggleInputBoolean = false;
     private _toggleTopBarMenue = false;
-    itemsNumber = 0;
     @Input() mobileMode: boolean;
+    @Input() darkTheme: boolean;
 
     constructor() { }
 

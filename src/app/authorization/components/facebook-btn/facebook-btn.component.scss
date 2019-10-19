@@ -1,0 +1,27 @@
+.fb-btn {
+    font-family: "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 0.8rem;
+    background: #3A5A97;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,20,.4);
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .fb-icon {
+        background: url("../../../../assets/img/icons/fb.jpg");
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+    }
+}

@@ -1,0 +1,12 @@
+<div class="quantity">
+  <div class="change-number font-primary" (click)=decreaseQuantity()>-</div>
+  <input 
+    type="text" 
+    class="number-input font-primary" 
+    [formControl]="itemNumberInput" 
+    (keyup.enter)="changeQuantity()"
+    [placeholder]="quantity"
+    [value]="quantity"
+    >
+  <div class="change-number font-primary" (click)=increaseQuantity()>+</div>
+</div>

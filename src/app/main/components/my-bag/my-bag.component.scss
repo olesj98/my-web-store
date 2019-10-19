@@ -1,0 +1,105 @@
+@import "../../../../styles/common.scss";
+
+.close-img {
+    background: url("../../../../assets/img/icons/close.svg");
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include background-img-positioning(center, no-repeat, cover);
+    cursor: pointer;
+}
+
+.bag-cart-container {
+    height: 400px;
+    overflow: auto;
+    padding: 2rem;
+
+    .header-names {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        color: #B4B4B4;
+    }
+// customize mat-table
+    .mat-header-cell {
+        border-bottom: 2px solid #E5E5E5;
+    }
+
+    .mat-cell {
+        border: none;
+        margin-top: 1rem;
+    }
+
+// customize mat-table end
+    .item {
+        display: flex;
+        flex-direction: row;
+
+        .img-container {
+            height: 6.5rem;
+            width: 6.5rem;
+            border: 1px solid #E5E5E5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .cart-img {
+                height: 5rem;
+            }
+        }
+
+
+        .cart-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 1rem;
+
+            .item-name {
+                color: $main-text-color;
+            }
+
+            .remove {
+                position: relative;
+                font-family: "Roboto";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                color: #A6A6A6;
+                padding-left: 1.5rem;
+                cursor: pointer;
+
+                .remove-icon {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background: url("../../../../assets/img/icons/remove-btn.svg");
+                    @include background-img-positioning(center, no-repeat, cover);
+                    height: 1rem;
+                    width: 1.5rem;
+                }
+            }
+
+        }
+    }
+
+}
+
+table {
+    width: 100%;
+}
+
+.to-left {
+    text-align: start;
+}
+
+.to-center {
+    text-align: center;
+}
+
+.to-right {
+    text-align: end;
+}

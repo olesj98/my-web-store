@@ -5,8 +5,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const appRoutes: Routes = [
+    { path: "" , redirectTo: "/main/home", pathMatch: "full" }, // redirect to checkout ???
     { path: "checkout", loadChildren: () => import("./checkout/checkout.module").then(mod => mod.CheckoutModule) },
-    { path: "" , redirectTo: "/home", pathMatch: "full" },
     { path: "**", component: PageNotFoundComponent }
 ];
 

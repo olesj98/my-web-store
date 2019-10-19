@@ -40,7 +40,6 @@ h2 {
 
 // MAT DIALOG CONTAINER STYLING
 .dialog-container {
-    
     .mat-dialog-container {
         min-height: 480px;
         min-width: 320px;
@@ -49,5 +48,28 @@ h2 {
         box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
         padding: 0.5rem;
     }
+}
+.cdk-global-overlay-wrapper {
+    .cart-container {
+        min-width: 95vw;
+        // szczob peremiszczaty konteiner
+        position: absolute !important;
+        top: 1rem;
+        // left: 2rem;
+    
+        .mat-dialog-container {
+            min-height: 50vh;
+            min-width: 85vw;
+            border-radius: 0;
+            background: #FFFFFF;
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 0.5rem;
+        }
+    }
+}
+
+
+.cdk-overlay-dark-backdrop {
+    background:rgba(0, 0, 0, 0.1);
 }
 // MAT DIALOG CONTAINER STYLING END

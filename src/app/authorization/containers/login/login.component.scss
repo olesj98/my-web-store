@@ -7,7 +7,7 @@
 
     .form-error {
         position: absolute;
-        top: 11rem;
+        top: 0.5rem;
         padding: 1rem 1.5rem;
         background-color: rgb(247, 125, 125);
         @include font("Montserrat", 700, 1rem, white);
@@ -19,7 +19,7 @@
 
     .login-title {
         color: #2E2E2E;
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
     }
 
     .login-form {

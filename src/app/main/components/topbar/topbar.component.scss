@@ -1,0 +1,40 @@
+.mat-toolbar-row {
+    color: black;
+    background-color: white;
+}
+.custom-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toolbar {
+    list-style-type: none;
+    display: flex;
+    min-width: 20rem;
+    justify-content: space-between;
+}
+
+.font {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    color: #2E2E2E;
+    font-weight: 700;
+}
+
+.currency {
+    position: relative;
+
+    .flag {
+        background-image: url("../../../../assets/img/icons/gbr-flag.svg");
+        background-position: center;
+        width: 1.5rem;
+        height: 1rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .currency-name {
+        position: absolute;
+        right: -3.5rem;
+        top: -1rem;
+    }
+}
