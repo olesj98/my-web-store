@@ -1,0 +1,8 @@
+<div class="custom-selector" (click)="toggleSelect(); onTouched();" (blur)="toggleSelect(true)" tabindex="1">
+  <span class="placeholder" [class.touched]="selectedValue">{{ selectedValue ? selectedValue : initialValue }}</span>
+  <!-- POPRAWYTY z TRANSITION -->
+  <div class="selector-arrow" [class.touched-tmp-arrow]="!hideOptions"></div>
+  <div class="custom-options" [class.hide]="hideOptions">
+    <div class="option" (click)="selectValue(option)" *ngFor="let option of (options$ | async)">{{ option.name }}</div>
+  </div>
+</div>

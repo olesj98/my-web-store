@@ -23,6 +23,10 @@
         font-size: 16px;
         color: #B4B4B4;
     }
+
+    .fix-width {
+        width: 7rem;
+    }
 // customize mat-table
     .mat-header-cell {
         border-bottom: 2px solid #E5E5E5;
@@ -85,7 +89,34 @@
 
         }
     }
+}
+.bag-cart-container::-webkit-scrollbar {
+    background: #EFEFEF;
+    width: 3px;
+    border-radius: 3px;
+}
+.bag-cart-container::-webkit-scrollbar-thumb {
+    background: #6C6D7A;
+    border-radius: 3px;
+}
 
+.cart-footer {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    background-color: #EFEFEF;
+    justify-content: space-between;
+    align-items: center;
+
+    .card-btn-back {
+        @include main-btn(white, $main-color);
+        margin: 0 2rem;
+    }
+    
+    .card-btn-checkout {
+        @include main-btn($main-color, white);
+        margin: 0 2rem;
+    }
 }
 
 table {

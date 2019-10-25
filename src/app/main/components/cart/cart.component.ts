@@ -4,6 +4,7 @@ import { CartService } from "../../services/cart.service";
 import { map } from "rxjs/operators";
 import { MyBagComponent } from "../my-bag/my-bag.component";
 import { MatDialog } from "@angular/material/dialog";
+import { CartItem } from "../../models/cartItem";
 
 
 @Component({
@@ -14,15 +15,17 @@ import { MatDialog } from "@angular/material/dialog";
 })
 export class CartComponent {
 
+    cartItems$: Observable<number>;
+
     constructor(
         private cartService: CartService,
         public dialog: MatDialog
-    ) { }
-
-    cartItems = this.cartService.cartItems
-        .pipe(
-            map( cartItems => cartItems.length)
-        );
+    ) {
+        this.cartItems$ = this.cartService.cartItems$
+            .pipe(
+                map( (cartItems: CartItem[]) => cartItems.length)
+            );
+    }
 
     openCart() {
         this.dialog.open(MyBagComponent, {

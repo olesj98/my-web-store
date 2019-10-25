@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../services/product.service";
 import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
+import { map } from "rxjs/operators";
+import { CartService } from "../../services/cart.service";
 
 @Component({
     selector: "store-catalog",
@@ -10,17 +11,17 @@ import { map } from 'rxjs/operators';
 })
 export class CatalogComponent implements OnInit {
 
-    products: Observable<any>;
+    products$: Observable<any>;
+    isLoadingProducts: boolean;
 
     constructor(
-        private productService: ProductService
+        private productService: ProductService,
     ) { }
 
     ngOnInit() {
-        this.products = this.productService.getProducts(1, 20, 220)
-            .pipe(
-                map( (productsData: { rows: []} ) => productsData.rows)
-            );
+        this.products$ = this.productService.products$;
+        this.productService.isLoadingProducts$
+            .subscribe((value: boolean) => this.isLoadingProducts = value );
     }
 
 }

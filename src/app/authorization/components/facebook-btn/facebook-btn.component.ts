@@ -23,20 +23,20 @@ export class FacebookBtnComponent implements OnInit {
 
     checkLoginState() {
         // jak zrobyty szczob ne kryczalo error na FB???
-        FB.login(response => {
-            if (response.status === "connected") {
-                // error lowymo wid naszogo servisu - czomus ne hocze regaty
-                this.customerService.login({ access_token: response.authResponse.accessToken }, LoginStrategy.Facebook)
-                    .subscribe(() => {
-                        this.customerLogged.emit();
-                    },
-                    (err) => {
-                        this.customerError.emit(err);
-                    });
-            } else {
-                console.log("NOT CONECTED"); // wertaje jakszczo zakryty dialogowe wikno
-            }
-        });
+        // FB.login(response => {
+        //     if (response.status === "connected") {
+        //         // error lowymo wid naszogo servisu - czomus ne hocze regaty
+        //         this.customerService.login({ access_token: response.authResponse.accessToken }, LoginStrategy.Facebook)
+        //             .subscribe(() => {
+        //                 this.customerLogged.emit();
+        //             },
+        //             (err) => {
+        //                 this.customerError.emit(err);
+        //             });
+        //     } else {
+        //         console.log("NOT CONECTED"); // wertaje jakszczo zakryty dialogowe wikno
+        //     }
+        // });
     }
 
 }

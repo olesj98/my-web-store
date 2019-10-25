@@ -1,0 +1,113 @@
+
+.hide {
+    display: none;
+}
+
+.select-page {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    font-family: "Open Sans";
+    font-weight: 300;
+    font-size: 14px;
+    padding: 0.3rem;
+}
+
+.page-input-container {
+    position: relative;
+
+    .page-input {
+        background: white;
+        border: 1px solid #E1E1E1;
+        border-radius: 2px;
+        height: 2rem;
+        width: 4rem;
+        padding: 0.5rem;
+        outline: 0;
+    }
+
+    .select-area {
+        position: absolute;
+        height: 100%;
+        width: 1.3rem;
+        right: 0;
+        top: 0;
+        outline: 0;
+        cursor: pointer;
+    }
+    .selector-arrow {
+        position: absolute;
+        top: 0.8rem;
+        right: 0.5rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        border: 2px solid black;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg);
+        transition: transform 500 ease-out;
+    }
+
+    .options {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(100%);
+        z-index: 1;
+
+        .option {
+            width: 4rem;
+            height: 1.2rem;
+            background: white;
+            border-top: 1px solid rgb(219, 219, 219);
+            font-family: "Open Sans";
+            font-weight: 300;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+.arrows {
+    display: flex;
+    .arrow {
+        background: rgb(224, 223, 223);
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        position: relative;
+        margin: 0.2rem;
+        cursor: pointer;
+    
+        .arrow-left {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.8rem;
+            width: 0.6rem;
+            height: 0.6rem;
+            border: 2px solid black;
+            border-top: none;
+            border-right: none;
+            transform: rotate(45deg);
+        }
+        .arrow-rigth {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.5rem;
+            width: 0.6rem;
+            height: 0.6rem;
+            border: 2px solid black;
+            border-bottom: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+    }
+    .arrow:hover {
+        background: rgb(235, 234, 234);
+    }
+}

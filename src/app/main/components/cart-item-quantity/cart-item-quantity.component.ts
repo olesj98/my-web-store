@@ -43,7 +43,8 @@ export class CartItemQuantityComponent implements OnInit {
   }
 
   upDateCartItems(quantity: number): void {
-    this.cartService.updateCartItem(quantity, this.item.item.item_id).subscribe(null, console.log);
+    this.cartService.updateCartItem(quantity, this.item.item.item_id);
+    this.cartService.toggleIsLoading(true);
   }
 
 }

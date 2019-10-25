@@ -22,13 +22,18 @@ export class AppComponent implements OnInit {
                 null,
                 (err: HttpCustomerErorr) => {
                     this.customerService.logout();
+                    localStorage.removeItem("token");
                 });
-        // init cart id
-        this.cartService.generateCartId()
-            .subscribe(
-                null,
-                err => console.log(err)
-            );
 
+        const cartId = localStorage.getItem("cart_id");
+        if (!cartId) {
+            this.cartService.generateCartId()
+                .subscribe(
+                    null,
+                    err => console.log(err)
+                );
+        }
+
+        this.cartService.getShopingCart();
     }
 }

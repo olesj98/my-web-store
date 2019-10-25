@@ -31,7 +31,8 @@ export class ProductComponent implements OnInit {
     const productOptions = {
       cart_id: this.cartService.cartId,
       product_id: this.product.product_id,
-      attributes: "L"
+      attributes: "L",
+      quantity: 1,
     };
     this.addProductToCart.emit(productOptions);
   }

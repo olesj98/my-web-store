@@ -29,6 +29,13 @@ import { ProductListComponent } from "./components/product-list/product-list.com
 import { ProductComponent } from "./components/product/product.component";
 import { MyBagComponent } from "./components/my-bag/my-bag.component";
 import { CartItemQuantityComponent } from "./components/cart-item-quantity/cart-item-quantity.component";
+import { FiltersComponent } from "./components/filters/filters.component";
+import { ProductHoverDirective } from "./directives/product-hover.directive";
+import { SpinerComponent } from "./components/spiner/spiner.component";
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { SortByComponent } from './components/sort-by/sort-by.component';
+import { SelectPageComponent } from './components/select-page/select-page.component';
+import { SlidePageComponent } from './components/slide-page/slide-page.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +55,14 @@ import { CartItemQuantityComponent } from "./components/cart-item-quantity/cart-
         ProductListComponent,
         ProductComponent,
         MyBagComponent,
-        CartItemQuantityComponent
+        CartItemQuantityComponent,
+        FiltersComponent,
+        ProductHoverDirective,
+        SpinerComponent,
+        PaginationComponent,
+        SortByComponent,
+        SelectPageComponent,
+        SlidePageComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="pagination-input">
+    <store-sort-by></store-sort-by>
+    <div class="viewed-amount">View: {{ viewedProducts$ | async }} | <span class="total-amount">{{ totalProductsAmount$ | async }}</span></div>
+    <store-select-page></store-select-page>
+  </div>
+</div>
+<store-slide-page></store-slide-page>

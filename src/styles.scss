@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Playfair+Display:400i,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Playfair+Display:400i,700&display=swap');
 // @import './styles/common.scss';
 // @import './styles/material-dialog.scss';
 
@@ -13,7 +13,8 @@
 }
 
 html, body { 
-    height: 100%; 
+    height: 100%;
+    background-color: #F2F2F2;
 }
 body { 
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
@@ -63,7 +64,7 @@ h2 {
             border-radius: 0;
             background: #FFFFFF;
             box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
-            padding: 0.5rem;
+            padding: 0;
         }
     }
 }

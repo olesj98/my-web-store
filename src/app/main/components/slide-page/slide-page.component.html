@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="pagination">
+    <div class="arrow-title">
+      <div class="arrow" (click)="previousPage()">
+        <div class="arrow-left"></div>
+      </div>
+      Back
+    </div>
+    <div class="pages">
+      <button class="page" *ngIf="pagesType !== 'first'" (click)="selectPage('first')">1</button>
+      <button class="page" *ngIf="pagesType !== 'first'">...</button>
+      <button 
+        class="page" 
+        [class.page-active]="page.isActive" 
+        *ngFor="let page of (croppedPages$ | async)"
+        (click)="selectPage(page.number)"
+        >{{ page.number }}</button>
+      <button class="page" *ngIf="pagesType !== 'last'">...</button>
+      <button class="page" *ngIf="pagesType !== 'last'" (click)="selectPage('last')">{{ totalPages$ | async }}</button>
+    </div>
+    <div class="arrow-title">
+      Forward
+      <div class="arrow arrow-rigth" (click)="nextPage()">
+        <div class="arrow-rigth"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+@import "../../../../styles/common.scss";
+
+:host {
+    width: 100%;
+}
+
+.pagination-input {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .total-amount {
+        color: #BABABA;
+        font-family: "Montserrat";
+        font-weight: 700;
+    }
+
+    .viewed-amount {
+        color: #2E2E2E;
+        font-family: "Montserrat";
+        font-weight: 700;
+    }
+}

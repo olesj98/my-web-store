@@ -4,6 +4,7 @@ import { CartService } from "../../services/cart.service";
 import { Observable } from "rxjs";
 import { CartItem } from "../../models/cartItem";
 import { map, tap } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "store-my-bag",
@@ -14,11 +15,15 @@ export class MyBagComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private dialogRef: MatDialogRef<MyBagComponent>
-  ) { }
+    private dialogRef: MatDialogRef<MyBagComponent>,
+    private router: Router
+  ) {
+    this.isLoadTotalPrice = this.cartService.isLoading$;
+  }
+  isLoadTotalPrice: Observable<boolean>;
 
   displayedColumns = ["item", "size", "quantity", "price"];
-  cartItems: Observable<CartElement[]> = this.cartService.cartItems
+  cartItems: Observable<CartElement[]> = this.cartService.cartItems$
     .pipe(
       map((cartItems: CartItem[]) => {
         return cartItems.map((cartItem: CartItem) => {
@@ -46,8 +51,7 @@ export class MyBagComponent implements OnInit {
   }
 
   remoweItem(itemId: number) {
-    this.cartService.removeItemFromCart(itemId)
-      .subscribe(null);
+    this.cartService.removeItemFromCart(itemId);
   }
 
 }

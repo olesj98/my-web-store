@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from "@angular/core
 import { Product } from "../../models/product";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { CartService } from '../../services/cart.service';
+import { CartService } from "../../services/cart.service";
 
 @Component({
   selector: "store-product-list",

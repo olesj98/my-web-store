@@ -1,0 +1,21 @@
+<div class="select-page">
+  <span class="text">Page</span>
+  <div class="page-input-container">
+    <input [formControl]="pageNumber" class="page-input" (keyup.enter)="setInputValue($event.target.value)" id="name">
+    <div class="select-area" tabindex="1" (click)="toggleOptions()" (blur)="toggleOptions(true)">
+      <span class="selector-arrow"></span>
+      <div class="options" [class.hide]="hideOptions">
+        <div class="option" *ngFor="let num of (pagesNumber$ | async)" (click)="setInputValue(num)">{{ num }}</div>
+      </div>
+    </div>
+  </div>
+  <span class="text">of {{ (pagesNumber$ | async).slice(-1)[0] }}</span>
+  <div class="arrows">
+      <div class="arrow arrow-left" (click)="previousPage()">
+        <div class="arrow-left"></div>
+      </div>
+      <div class="arrow arrow-rigth" (click)="nextPage()">
+        <div class="arrow-rigth"></div>
+      </div>
+  </div>
+</div>

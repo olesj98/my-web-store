@@ -1,1 +1,15 @@
-<store-product-list [products]="products"></store-product-list>
+<div class="container-fluid">
+    <store-pagination></store-pagination>
+    <div class="row">
+        <div class="col-md-3 padding-0">
+            <store-filters></store-filters>
+        </div>
+        <div class="col-md-9">
+            <div class="loading-spiner" *ngIf="isLoadingProducts">
+                <store-spiner></store-spiner>
+            </div>
+            <store-product-list [products]="products$" *ngIf="!isLoadingProducts"></store-product-list>            
+        </div>
+    </div>
+    <store-slide-page></store-slide-page>
+</div>
