@@ -3,7 +3,6 @@ import { FormControl } from "@angular/forms";
 import { ProductService } from "../../services/product.service";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { Router, ActivatedRoute, Params } from "@angular/router";
 import { DepartmentsService, Department } from "../../services/departments.service";
 
 @Component({
@@ -13,27 +12,45 @@ import { DepartmentsService, Department } from "../../services/departments.servi
 })
 export class PaginationComponent implements OnInit {
 
-  filterBy: FormControl;
+  filterBySelect: FormControl;
   totalProductsAmount$: Observable<number>;
   viewedProducts$: Observable<number>;
-  sortByOptions$: Observable<Department[]>;
+  options$: Observable<Department[]>;
 
   constructor(
     private productService: ProductService,
-    private departmentService: DepartmentsService,
+    private departmentService: DepartmentsService
     ) {
-    this.filterBy = new FormControl("");
+    this.filterBySelect = new FormControl("");
     this.totalProductsAmount$ = this.productService.totalProductsAmount$;
   }
 
-  changeSortingType() {
-    // console.log(this.filterBy.value);
+  changeSelectValue() {
+    const departmentId = this.filterBySelect.value.department_id;
+    if (departmentId) {
+      // this.productService.removeQueryParam("category_id");
+      this.productService.setNewFilter({ department_id: departmentId });
+    }
   }
 
   ngOnInit() {
-    this.viewedProducts$ = this.productService.viewedProducts$;
+    this.viewedProducts$ = this.productService.totalProductsAmount$
+      .pipe(
+        map(totalProductsAmount => this.productService.viewedProducts$.getValue() > totalProductsAmount ?
+          totalProductsAmount : this.productService.viewedProducts$.getValue()),
+      );
     this.departmentService.getDepartments();
-    this.sortByOptions$ = this.departmentService.departments$;
+    this.options$ = this.departmentService.departments$;
+
+    if (this.productService.departmentId) {
+      this.departmentService.departments$
+        .subscribe((departments: Department[]) => {
+          const currentDepartment = departments.find((department: Department) =>
+            department.department_id === +this.productService.departmentId );
+          // select maje pryjmaty object z propsom name!!!!!!!!!!!!!!!!!!!
+          this.filterBySelect.setValue(currentDepartment);
+        });
+    }
   }
 
 }

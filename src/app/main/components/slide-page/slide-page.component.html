@@ -7,16 +7,16 @@
       Back
     </div>
     <div class="pages">
-      <button class="page" *ngIf="pagesType !== 'first'" (click)="selectPage('first')">1</button>
-      <button class="page" *ngIf="pagesType !== 'first'">...</button>
+      <button class="page" *ngIf="!(pagesType === 'first' || pagesType === 'small')" (click)="selectPage('first')">1</button>
+      <button class="page" *ngIf="!(pagesType === 'first' || pagesType === 'small')">...</button>
       <button 
         class="page" 
         [class.page-active]="page.isActive" 
         *ngFor="let page of (croppedPages$ | async)"
         (click)="selectPage(page.number)"
         >{{ page.number }}</button>
-      <button class="page" *ngIf="pagesType !== 'last'">...</button>
-      <button class="page" *ngIf="pagesType !== 'last'" (click)="selectPage('last')">{{ totalPages$ | async }}</button>
+      <button class="page" *ngIf="!(pagesType === 'last' || pagesType === 'small')">...</button>
+      <button class="page" *ngIf="!(pagesType === 'last' || pagesType === 'small')" (click)="selectPage('last')">{{ totalPages$ | async }}</button>
     </div>
     <div class="arrow-title">
       Forward

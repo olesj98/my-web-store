@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { tap, publishReplay, refCount } from "rxjs/operators";
 
 @Injectable({
@@ -10,13 +10,13 @@ import { tap, publishReplay, refCount } from "rxjs/operators";
 export class DepartmentsService {
 
   departments$: Observable<Department[]>;
-  _departments$: BehaviorSubject<Department[]> = new BehaviorSubject<Department[]>([]);
+  _departments$: Subject<Department[]> = new Subject<Department[]>();
 
   constructor(private http: HttpClient) {
 
     this.departments$ = this._departments$.pipe(
-      // publishReplay(1),
-      // refCount()
+      publishReplay(1),
+      refCount()
     );
 
   }

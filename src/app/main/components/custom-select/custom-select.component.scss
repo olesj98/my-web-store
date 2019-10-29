@@ -1,3 +1,7 @@
+:host {
+    width: 100%;
+}
+
 .hide {
     display: none;
 }
@@ -6,11 +10,12 @@
     display: flex;
     position: relative;
     height: 2.2rem;
-    width: 7rem;
+    width: 100%;
     background-color: white;
     border-radius: 5px;
     cursor: pointer;
     outline: 0;
+    border: 1px solid #E1E1E1;
 
     .touched {
         color: rgb(20, 20, 20) !important;
@@ -50,16 +55,7 @@
         border-radius: 5px;
         transform: translateY(100%);
         z-index: 1;
-
-        .option {
-            background: white;
-            min-width: 7rem;
-            text-align: center;
-            font-family: "Open Sans";
-            font-weight: 700;
-            font-size: 0.9rem;
-            border-top: 1px solid rgb(223, 223, 223);
-        }
+        width: 100%;
     }
 }
 

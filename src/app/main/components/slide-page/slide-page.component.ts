@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { PaginationService } from "../../services/pagination.service";
 import { ProductService } from "../../services/product.service";
-import { map, tap } from "rxjs/operators";
+import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 
 @Component({
@@ -24,12 +24,8 @@ export class SlidePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.queryParams
-      .subscribe( (value: Params) => {
-          this.currentPage = value.page;
-          this.productService.searchProducts(value.page);
-        }
-      );
+    this.paginationService.currentPage$
+      .subscribe( page => this.currentPage = page);
 
     this.croppedPages$ = this.productService.totalPages$
       .pipe(
@@ -43,12 +39,17 @@ export class SlidePageComponent implements OnInit {
             const currentPage = pages.find(page => page.number === +this.currentPage);
             currentPage.isActive = true;
             const currentPageIndex = pages.indexOf(currentPage);
-            if (currentPage.number > pages.length - 4) {
-              croppedPages = pages.slice(pages.length - 4, pages.length);
-              this.pagesType = "last";
-            } else if (currentPage.number < 4) {
+
+            if (currentPage.number <= 4) {
               croppedPages = pages.slice(0, 4);
               this.pagesType = "first";
+              if (pages.length <= 4) {
+                croppedPages = pages.slice();
+                this.pagesType = "small";
+              }
+            } else if (currentPage.number > pages.length - 4) {
+              croppedPages = pages.slice(pages.length - 4, pages.length);
+              this.pagesType = "last";
             } else {
               croppedPages = pages.slice(currentPageIndex - 1, currentPageIndex + 2);
               this.pagesType = "middle";

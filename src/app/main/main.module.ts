@@ -32,10 +32,12 @@ import { CartItemQuantityComponent } from "./components/cart-item-quantity/cart-
 import { FiltersComponent } from "./components/filters/filters.component";
 import { ProductHoverDirective } from "./directives/product-hover.directive";
 import { SpinerComponent } from "./components/spiner/spiner.component";
-import { PaginationComponent } from './components/pagination/pagination.component';
-import { SortByComponent } from './components/sort-by/sort-by.component';
-import { SelectPageComponent } from './components/select-page/select-page.component';
-import { SlidePageComponent } from './components/slide-page/slide-page.component';
+import { PaginationComponent } from "./components/pagination/pagination.component";
+import { SelectPageComponent } from "./components/select-page/select-page.component";
+import { SlidePageComponent } from "./components/slide-page/slide-page.component";
+import { CustomSelectComponent } from "./components/custom-select/custom-select.component";
+import { CustomOptionComponent } from "./components/custom-option/custom-option.component";
+import { FilterTopBarComponent } from './components/filter-top-bar/filter-top-bar.component';
 
 @NgModule({
     declarations: [
@@ -60,9 +62,11 @@ import { SlidePageComponent } from './components/slide-page/slide-page.component
         ProductHoverDirective,
         SpinerComponent,
         PaginationComponent,
-        SortByComponent,
         SelectPageComponent,
-        SlidePageComponent
+        SlidePageComponent,
+        CustomSelectComponent,
+        CustomOptionComponent,
+        FilterTopBarComponent
     ],
     imports: [
         CommonModule,

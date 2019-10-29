@@ -54,7 +54,6 @@
 
     .pages {
         display: flex;
-        width: 15rem;
         justify-content: space-around;
 
         .page {
@@ -66,6 +65,7 @@
             color: #2E2E2E;
             font-family: "Montserrat";
             font-weight: 700;
+            margin: 0 0.5rem;
         }
 
         .page-active {

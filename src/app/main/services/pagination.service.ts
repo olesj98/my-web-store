@@ -36,8 +36,8 @@ export class PaginationService {
     this.setPage(++value);
   }
 
-  changePage(value = 1, limit = 10) {
-    this.router.navigate(["/store/catalog"], { queryParams: { page: value, limit } });
+  changePage(page = 1, limit = 10) {
+    this.productService.setQueryParam({ page, limit });
   }
 
   validateInput(value: number): boolean {

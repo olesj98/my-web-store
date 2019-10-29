@@ -1,0 +1,38 @@
+:host {
+    width: 100%;
+}
+
+.top-filter-bar {
+    width: 100%;
+    // min-height: 4.5rem;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 1.5rem 0.7rem;
+
+    .text {
+        font-family: Lucida Grande;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        color: #2E2E2E;
+        margin: 0 0.5rem 0 0;
+    }
+
+    .filter {
+        display: flex;
+        align-items: center;
+        .select {
+            width: 9rem;
+            margin: 0 0.7rem 0 0;
+        }
+    }
+    .sort {
+        display: flex;
+        align-items: center;
+        .select {
+            width: 12.5rem;
+        }
+    }
+}

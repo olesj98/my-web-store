@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="top-filter-bar">
+    <div class="filter">
+        <div class="text">Filter</div>
+        <div class="select">
+          <store-custom-select [placeholder]="'Gender'" (changeSelectedValue)="changeSelectValueGender()" [formControl]="gender">
+            <store-custom-option *ngFor="let option of (genders$ | async)" [optionData]="option">{{ option.name }}</store-custom-option>
+          </store-custom-select>
+        </div>
+        <div class="select">
+          <store-custom-select [placeholder]="'Style'" (changeSelectedValue)="changeSelectValueStyle()" [formControl]="style">
+            <store-custom-option *ngFor="let category of (categories$ | async)" [optionData]="category">{{ category.name }}</store-custom-option>
+          </store-custom-select>
+        </div>
+        <div class="select">
+          <store-custom-select [placeholder]="'Color'" (changeSelectedValue)="changeSelectValueColor()" [formControl]="color">
+            <store-custom-option *ngFor="let option of (colors$ | async)" [optionData]="option">{{ option.name }}</store-custom-option>
+          </store-custom-select>
+        </div>
+    </div>
+    <div class="sort">
+        <div class="text">Sort</div>
+        <div class="select">
+            <store-custom-select [placeholder]="'Most relevant'" (changeSelectedValue)="changeSelectValueSortType()" [formControl]="sortingType">
+              <store-custom-option *ngFor="let option of (sortTypes$ | async)" [optionData]="option">{{ option.name }}</store-custom-option>
+            </store-custom-select>
+        </div>
+    </div>
+  </div>      
+</div>
